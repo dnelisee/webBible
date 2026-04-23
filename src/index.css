@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Merriweather", ui-serif, Georgia, serif;
+  
+  --color-bible-bg: #FDFBF7;
+  --color-bible-ink: #2D2A26;
+  --color-bible-gray: #706B63;
+  --color-bible-accent: #2D2A26;
+  --color-bible-muted: #EAE4DB;
+  --color-bible-hover: #F5F1EB;
+}
+
+@layer base {
+  body {
+    @apply bg-bible-bg text-bible-ink font-sans transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-[#111111] text-[#e5e5e5];
+    --color-bible-bg: #111111;
+    --color-bible-ink: #e5e5e5;
+    --color-bible-gray: #a3a3a3;
+    --color-bible-muted: #222222;
+    --color-bible-hover: #1a1a1a;
+  }
+}
+
+.bible-text {
+  @apply font-serif text-[1.25rem] md:text-[1.35rem] leading-[1.8] tracking-[-0.01em];
+}
+
+.bento-card {
+  @apply bg-white dark:bg-zinc-900 border border-bible-muted rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+.glass {
+  @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border-b border-bible-muted/50;
+}
+
+/* Custom scrollbar for minimalist look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-700;
+}
